@@ -1,0 +1,42 @@
+*{
+  color:#ececec;
+  
+}
+
+body{
+  margin: 0;
+  padding: 0;
+
+}
+
+
+.app{
+  background-color: #212121;
+  display: flex;
+}
+
+/* Ensure the whole app takes exactly the screen height */
+.app-container {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden; /* This is key: it prevents the body scrollbar */
+}
+:root {
+  /* Dark Mode Defaults */
+  --bg-color: #212121;
+  --sidebar-bg: #171717;
+  --text-color: #ececec;
+  --input-bg: #2f2f2f;
+  --border-color: rgba(255, 255, 255, 0.1);
+  --accent-color: #10a37f;
+}
+
+[data-theme="light"] {
+  /* Light Mode Overrides */
+  --bg-color: #ffffff;
+  --sidebar-bg: #f9f9f9;
+  --text-color: #212121;
+  --input-bg: #f0f0f0;
+  --border-color: rgba(0, 0, 0, 0.1);
+}

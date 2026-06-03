@@ -1,0 +1,517 @@
+.chats {
+    max-width: 700px;
+    padding: 8rem;
+}
+
+.userDiv {
+    display: flex;
+    justify-content: flex-end;
+    font-size: 0.9rem;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.gptDiv {
+    text-align: left;
+    font-size: 0.9rem;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.userMessage {
+    background-color: #323232;
+    padding: 10px 20px;
+    border-radius: 14px;
+    margin-left: 15rem;
+    max-width: 500px;
+    width: fit-content;
+    color: white; /* default dark mode text */
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.container {
+    display: flex;
+    flex-direction: row; /* or column */
+    overflow-y: scroll;
+    direction: ltr; /* ensures scrollbar stays on the right */
+}
+
+.hljs {
+    border-radius: 14px;
+}
+
+
+
+
+
+/* User message in light mode */
+[data-theme="light"] .userMessage {
+    background-color: #d0e6ff; /* light blue bubble */
+    color: black;              /* user text */
+}
+
+/* GPT message in light mode */
+[data-theme="light"] .gptDiv {
+    background-color: #e0e0e0; /* light gray bubble */
+    color: black;              /* text */
+}
+
+[data-theme="light"] .gptDiv,
+[data-theme="light"] .gptDiv * {
+    color: black !important;   /* force all inner elements to black */
+}
+
+/* Code blocks inside GPT messages */
+[data-theme="light"] .gptDiv .hljs {
+    background-color: #f0f0f0 !important;
+    color: black !important;
+}
+
+startNewChat {
+    transition: color 0.3s ease; /* smooth transition */
+}
+
+/* Light mode */
+[data-theme="light"] .startNewChat {
+    color: black;
+}
+
+/* Dark mode */
+[data-theme="dark"] .startNewChat {
+    color: white;
+}
+.container {
+    flex: 1;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.userDiv, .gptDiv {
+    width: 100%;
+    max-width: 750px;
+    margin: 1rem 0;
+    animation: fadeIn 0.4s ease forwards;
+}
+
+.userDiv {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.userMessage {
+    background-color: var(--input-bg);
+    border: 1px solid var(--border-color);
+    padding: 12px 20px;
+    border-radius: 18px 18px 2px 18px;
+    max-width: 80%;
+    color: var(--text-color);
+}
+
+.gptDiv {
+    line-height: 1.7;
+    color: var(--text-color);
+}
+
+.startNewChat {
+    margin-top: 20vh;
+    font-size: 2rem;
+    font-weight: 600;
+    color: var(--text-color);
+    opacity: 0.8;
+}
+/* Styling for the Copy Button */
+.code-container {
+    position: relative;
+    margin: 1.5rem 0;
+}
+
+.copy-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--border-color);
+    color: var(--text-color);
+    padding: 6px 12px;
+    border-radius: 8px;
+    font-size: 12px;
+    cursor: pointer;
+    z-index: 10;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.copy-button:hover {
+    background-color: var(--accent-color);
+    color: #fff;
+    border-color: transparent;
+}
+
+/* Adjusting Highlight.js blocks to make space for the button */
+.hljs {
+    padding: 40px 20px 20px 20px !important;
+    border-radius: 12px;
+    font-family: 'Fira Code', monospace;
+}
+.userMessageContainer {
+    position: relative;
+    display: inline-block; /* Keeps the container tight to the text */
+    max-width: 80%;
+}
+
+.copyUserBtn {
+    position: absolute;
+    right: -30px; /* Positions it just outside the bubble */
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    border: none;
+    color: var(--text-color);
+    opacity: 0;
+    cursor: pointer;
+    transition: opacity 0.2s ease;
+    font-size: 0.9rem;
+}
+
+.userDiv:hover .copyUserBtn {
+    opacity: 0.6;
+}
+
+.copyUserBtn:hover {
+    opacity: 1 !important;
+    color: var(--accent-color);
+}
+
+/* Ensure the userDiv doesn't cut off the button */
+.userDiv {
+    padding-right: 40px; 
+}
+.userDiv {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 20px;
+    padding-right: 10px; /* Space for the copy button */
+}
+
+.userMessageContainer {
+    position: relative;
+    display: flex;
+    align-items: center;
+    max-width: 80%;
+}
+
+.copyUserMsgBtn {
+    background: transparent;
+    border: none;
+    color: var(--text-color);
+    margin-left: 10px;
+    cursor: pointer;
+    opacity: 0; /* Hidden by default */
+    transition: opacity 0.2s ease, color 0.2s ease;
+    font-size: 0.85rem;
+}
+
+.userMessageContainer:hover .copyUserMsgBtn {
+    opacity: 0.5;
+}
+
+.copyUserMsgBtn:hover {
+    opacity: 1 !important;
+    color: var(--accent-color);
+}
+
+.userMessage {
+    background-color: var(--input-bg);
+    padding: 12px 16px;
+    border-radius: 18px;
+    color: var(--text-color);
+    word-wrap: break-word;
+    text-align: left;
+}
+.gptMessageContainer {
+    position: relative;
+    width: 100%;
+}
+
+.copyMsgBtn {
+    background: transparent;
+    border: none;
+    color: var(--text-color);
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    padding: 5px;
+}
+
+.gptMessageContainer:hover .copyMsgBtn,
+.userMessageContainer:hover .copyMsgBtn {
+    opacity: 0.6;
+}
+
+.copyMsgBtn:hover {
+    opacity: 1 !important;
+    color: var(--accent-color);
+}
+
+/* Positioning for the GPT specific text copy (bottom right) */
+.gptCopy {
+    position: absolute;
+    bottom: -20px;
+    right: 0;
+    font-size: 0.8rem;
+}
+
+.gptDiv {
+    margin-bottom: 30px; /* Space for the bottom copy button */
+}
+.gptMessageContainer {
+    position: relative;
+    padding-bottom: 10px; /* Space for the button if needed */
+}
+
+.copyMsgBtn {
+    position: absolute;
+    bottom: -15px; /* Moves it slightly below the text */
+    right: 0;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    cursor: pointer;
+    background: transparent;
+    border: none;
+    color: var(--text-color);
+}
+
+.gptMessageContainer:hover .copyMsgBtn,
+.userMessageContainer:hover .copyMsgBtn {
+    opacity: 0.7;
+}
+.container {
+  flex-grow: 1;
+  height: 100vh;
+  background-color: #212121; /* Or your variable var(--bg-color) */
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden; 
+}
+
+/* This is the div that contains the actual message map */
+.chats {
+  flex-grow: 1;
+  overflow-y: auto; /* Only the messages should scroll */
+  padding: 20px;
+  width: 100%;
+}
+.container {
+    flex: 1;
+    height: 100vh;
+    background-color: var(--bg-color); /* Automatically switches */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+}
+
+.gptDiv {
+    line-height: 1.7;
+    color: var(--text-color); /* Automatically switches */
+    width: 100%;
+    max-width: 750px;
+    margin: 1rem 0;
+}
+
+.userMessage {
+    background-color: var(--input-bg);
+    border: 1px solid var(--border-color);
+    padding: 12px 20px;
+    border-radius: 18px 18px 2px 18px;
+    max-width: 80%;
+    color: var(--text-color); /* Automatically switches */
+}
+
+/* Fix for icons and Markdown text */
+.gptDiv *, .userDiv * {
+    color: var(--text-color) !important;
+}
+
+/* Fix for the "How can I help" heading */
+.startNewChat {
+    margin-top: 20vh;
+    font-size: 2rem;
+    font-weight: 600;
+    color: var(--text-color);
+    opacity: 0.8;
+}/* ... Keep all your existing CSS exactly as it is ... */
+
+/* ADD THIS SECTION AT THE VERY BOTTOM OF Chat.css */
+
+/* Fix for the white code box in dark mode */
+[data-theme="dark"] .hljs {
+    background: #1e1e1e !important; /* Deep dark background */
+    color: #abb2bf !important;      /* Light code text */
+}
+
+/* Ensure the container matches the code block */
+.code-container {
+    background-color: transparent;
+    border-radius: 12px;
+    margin: 1.5rem 0;
+    position: relative;
+}
+
+/* Maintain your existing light mode override */
+[data-theme="light"] .gptDiv .hljs {
+    background-color: #f0f0f0 !important;
+    color: black !important;
+}
+
+/* --- Fluid Layout Logic --- */
+.container {
+    flex: 1;
+    height: 100vh;
+    background-color: var(--bg-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden; /* Prevents double scrollbars */
+}
+
+.chats {
+    width: 100%;
+    max-width: 800px; /* Maximum width for large screens */
+    padding: 5vh 5%;  /* Uses viewport height and % for fluid spacing */
+    flex-grow: 1;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* 2. The User Row: Use Flexbox to keep it on the right instead of fixed margins */
+.userDiv {
+    display: flex;
+    justify-content: flex-end; /* Pushes the bubble to the right edge */
+    width: 100%;
+    margin-bottom: 20px;
+    padding-right: 10px;
+}
+
+.userMessageContainer {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    width: 100%; /* Allows the bubble to shift left/right fluify */
+}
+
+.userMessage {
+    background-color: var(--input-bg);
+    padding: 12px 20px;
+    border-radius: 18px 18px 2px 18px;
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+    word-wrap: break-word;
+    
+    /* THE FIX: instead of margin-left: 15rem, we use max-width % */
+    max-width: 75%; 
+    min-width: 50px;
+    transition: all 0.3s ease;
+}
+
+/* --- Responsive GPT Messages --- */
+.gptDiv {
+    width: 100%;
+    max-width: 90%;
+    text-align: left;
+    font-size: 0.9rem;
+    line-height: 1.7;
+}
+
+/* --- Mobile Specific Tweaks (Under 600px) --- */
+/* 5. Mobile "App" Tweak: For very small phones */
+@media (max-width: 600px) {
+    .chats {
+        padding: 1rem; /* Even tighter padding for small screens */
+    }
+    .userMessage {
+        max-width: 90%; /* Let the bubble take more space on tiny screens */
+    }
+    .startNewChat {
+        font-size: 1.5rem;
+        margin-top: 15vh;
+    }
+}
+/* 1. Fluid Chat Container */
+.chats {
+    width: 100%;
+    max-width: 800px; /* Limits width on desktop so it's readable */
+    margin: 0 auto;   /* Centers the chat column */
+    padding: 20px;    /* Reasonable padding for all screens */
+    flex-grow: 1;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;        /* Space between message rows */
+    box-sizing: border-box;
+}
+
+/* 2. User Row Logic (The right-side alignment) */
+.userDiv {
+    display: flex;
+    justify-content: flex-end; /* Pushes everything in this row to the right */
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.userMessageContainer {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-end;
+    max-width: 100%; /* Occupies the full row width */
+}
+
+/* 3. The User Bubble (The actual fix) */
+.userMessage {
+    background-color: var(--input-bg);
+    padding: 12px 18px;
+    border-radius: 18px 18px 2px 18px;
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+    
+    /* --- REMOVED: margin-left: 15rem (This was causing the stacking) --- */
+    
+    max-width: 80%;    /* Bubble will never take more than 80% of screen */
+    width: fit-content; /* Shrinks to fit short text like "hi" */
+    
+    /* --- Ensures text wraps as a statement, not letters --- */
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    white-space: pre-wrap; 
+    line-height: 1.5;
+}
+
+/* 4. Mobile Responsiveness (Screen < 600px) */
+@media (max-width: 600px) {
+    .chats {
+        padding: 10px; /* Tighter padding for mobile */
+    }
+    
+    .userMessage {
+        max-width: 90%;   /* Gives statement more room on tiny screens */
+        font-size: 0.95rem; 
+        padding: 10px 14px;
+    }
+
+    .startNewChat {
+        font-size: 1.5rem;
+        margin-top: 15vh;
+        text-align: center;
+    }
+}

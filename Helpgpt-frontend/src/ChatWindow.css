@@ -1,0 +1,384 @@
+
+/* THESE ARE THE COLOR VARIABLES  */
+
+:root {
+  --bg-color: #212121;
+  --text-color: #ffffff;
+  --input-bg: rgba(255, 255, 255, 0.05);
+  --accent-color: #339cff;
+}
+
+body[data-theme='light'] {
+  --bg-color: #f4f4f4;
+  --text-color: #121212;
+  --input-bg: rgba(0, 0, 0, 0.05);
+  --accent-color: #0078ff;
+}
+
+
+
+
+
+.heading {
+    font-size: 23px;
+    padding: 15px;
+    display: flex;
+}
+
+.chat-window{
+    background-color: #212121 ;
+    height:100vh ;
+    width:100% ;
+    display:flex ;
+    flex-direction: column;
+    justify-content:space-between ;
+    align-items:center ;
+    text-align: center;
+}
+
+.navbar{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar span {
+    margin: 1rem 2rem;
+}
+
+.userIconDiv{
+    margin: 1rem 2rem;
+}
+
+.userIcon{
+    background-color: #339cff;
+    height: 25px;
+    width: 25px;
+    border-radius: 50%;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.chatInput{
+    width: 100%;
+    display:flex;
+    flex-direction: column; /* this will vertically aling it */
+    justify-content: center;
+    align-items: center;
+}
+
+
+.inputbox {
+  position: relative;
+  width: 100%;
+  max-width: 700px;
+  display: flex;
+  align-items: center;
+}
+
+input {
+  width: 100%;
+  border: none;
+  background-color: rgba(255, 255, 255, 0.05);
+  padding: 20px 50px 20px 20px; /* extra right padding for the button space */
+  font-size: 0.8rem;
+  border-radius: 14px;
+  box-shadow: rgba(0,0,0,0.05) 0 54px 55px,
+              rgba(0,0,0,0.05) 0 -12px 30px,
+              rgba(0,0,0,0.05) 0 4px 6px,
+              rgba(0,0,0,0.05) 0 12px 3px,
+              rgba(0,0,0,0.05) 0 -3px 5px;
+}
+
+input:focus {
+  outline: none;
+}
+
+#submit {
+  position: absolute;
+  right: 15px;
+  cursor: pointer;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  color: #339cff;
+}
+
+#submit i:hover{
+    color: cadetblue;
+}
+
+.info{
+    font-size: 0.8rem;
+    padding: 0.5rem ;
+    color: #b4b4b4;
+}
+
+
+/*  this is the dropdown css for the chatwindow */
+
+.dropDown {
+    position: absolute;
+    top: 4rem;
+    right: 4rem;
+    width: 150px;
+
+    background-color: #323232;
+    padding: 0.3rem 0.5rem;
+    border-radius: 6px;
+    text-align: left;
+    z-index: 1000;
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.dropDownItem {
+    font-size: 0.9rem;
+    margin: 0.3rem 0rem;
+    padding: 0.5rem 0.2rem;
+    cursor: pointer;
+}
+
+
+.dropDownItem:hover {
+    background-color: rgba(180, 180, 180, 0.1);
+    border-radius: 6px;
+}
+
+.chat-window {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+.userIcon {
+  background-color: var(--accent-color);
+}
+
+input {
+  background-color: var(--input-bg);
+  color: var(--text-color);
+}
+
+#submit {
+  color: var(--accent-color);
+}
+
+.dropDown {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+.dropDownItem:hover {
+  background-color: rgba(180, 180, 180, 0.1);
+}
+
+/* Light mode dropdown text and icons */
+[data-theme="light"] .dropDown {
+    background-color: #f4f4f4; /* optional: light dropdown background */
+    color: #121212; /* text color */
+}
+
+[data-theme="light"] .dropDownItem {
+    color: #121212; /* text color for each item */
+}
+
+[data-theme="light"] .dropDownItem i {
+    color: #121212; /* icon color */
+}
+
+[data-theme="light"] .heading {
+    color: #121212; /* icon color */
+}
+
+
+
+[data-theme="light"] .heading i {
+    color: #121212; /* icon color */
+}
+
+/* Dark mode dropdown (optional if you want specific adjustments) */
+[data-theme="dark"] .dropDown {
+    background-color: #323232;
+    color: #ffffff;
+}
+
+[data-theme="dark"] .dropDownItem i {
+    color: #ffffff;
+}
+
+[data-theme="dark"] HashLoader {
+    color: #000000 ;
+}
+.chat-window {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    transition: background 0.3s ease;
+}
+
+.navbar {
+    padding: 10px 20px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.inputbox {
+    background-color: var(--card-bg, rgba(255,255,255,0.02));
+    border: 1px solid var(--border-color);
+    border-radius: 14px;
+    transition: all 0.3s ease;
+}
+
+.inputbox:focus-within {
+    border-color: var(--accent-color);
+    box-shadow: 0 0 15px rgba(16, 163, 127, 0.1);
+}
+
+#submit {
+    color: var(--accent-color);
+    transition: transform 0.2s;
+}
+
+#submit:hover {
+    transform: scale(1.15);
+}
+
+.info {
+    font-size: 12px;
+    color: var(--text-sub, #888);
+    margin-top: 10px;
+}.navbar {
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    justify-content: space-between;
+}
+
+.nav-left {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+/* The Hamburger Icon Styling */
+.menu-toggle-icon {
+    font-size: 1.4rem;
+    cursor: pointer;
+    color: var(--text-color);
+    display: none; /* Hidden on desktop */
+}
+
+/* Show the hamburger ONLY on mobile */
+@media (max-width: 768px) {
+    .menu-toggle-icon {
+        display: block;
+    }
+    
+    .heading {
+        font-size: 1.1rem;
+    }
+}.nav-left { display: flex; align-items: center; gap: 10px; }
+.menu-toggle-icon { display: none; font-size: 1.5rem; cursor: pointer; color: var(--text-color); }
+
+@media (max-width: 768px) {
+    .menu-toggle-icon { display: block !important; }
+    .navbar span { margin: 0 !important; }
+}
+.user-info-display {
+    padding: 10px;
+    text-align: left;
+}
+
+.user-display-name {
+    font-weight: bold;
+    font-size: 14px;
+    margin: 0;
+    color: var(--text-color);
+}
+
+.user-display-email {
+    font-size: 12px;
+    color: gray;
+    margin: 2px 0 8px 0;
+}
+
+.dropDown hr {
+    border: 0;
+    border-top: 1px solid #444;
+    margin-bottom: 10px;
+}
+
+.dropDownItem.logout {
+    color: #ff4d4d;
+    margin-top: 5px;
+}
+.user-display-email {
+  font-size: 0.85rem;      /* Slightly smaller font helps */
+  color: #888;             /* Muted color for better hierarchy */
+  
+  /* The "Magic" Trio for overflow: */
+  max-width: 100px;        /* Fix this to the width of your box */
+  white-space: nowrap;     /* Prevents the email from wrapping to a new line */
+  overflow: hidden;        /* Hides the text that goes past the box */
+  text-overflow: ellipsis; /* Automatically adds the "..." at the end */
+  
+  display: block;          /* Ensures the width and overflow work correctly */
+}
+
+.user-display-name {
+  font-weight: bold;
+  margin-bottom: 2px;
+  text-transform: capitalize; /* Makes "bhumi" look like "Bhumi" */
+}
+
+.user-info-display {
+  padding: 10px;
+  width: 200px;            /* Set a consistent width for the dropdown box */
+}
+/* Ensure the wrapper actually wraps the text */
+.email-wrapper {
+  position: relative;
+  display: block; /* Changed from inline-block to take full width */
+  cursor: pointer;
+  width: fit-content;
+}
+
+.user-display-email {
+  max-width: 150px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin: 0;
+}
+
+.tooltip-text {
+  visibility: hidden;
+  position: absolute;
+  /* Change this to 'top: 100%' if 'bottom' is getting cut off at the top */
+  top: 110%; 
+  left: 0;
+  background-color: #1a1a1a; /* Match your dark theme */
+  color: #fff;
+  padding: 6px 10px;
+  border-radius: 4px;
+  font-size: 0.7rem;
+  white-space: nowrap;
+  z-index: 9999; /* Force it to the top */
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out;
+  border: 1px solid #444;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+  pointer-events: none; /* Prevents the tooltip from flickering */
+}
+
+/* Trigger the effect */
+.email-wrapper:hover .tooltip-text {
+  visibility: visible;
+  opacity: 1;
+}

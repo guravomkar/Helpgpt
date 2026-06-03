@@ -1,0 +1,298 @@
+.sidebar {
+    background-color: #171717;
+    color:#b4b4b4;
+    height: 100vh;
+    width: 320px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.logo{
+    height: 25px;
+    width: 25px;
+    background-color: white;
+    border-radius: 50%;
+    object-fit: cover;
+
+
+}
+
+button span {
+    font-size: 20px;
+}
+
+button {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: transparent;
+    border: solid  rgb(255, 255, 255, 0.5);
+    cursor: pointer;
+}
+
+.history{
+    margin: 10px;
+    padding:10px;
+    height:100%;
+   
+}
+
+.history li{
+    list-style-type: none ;
+    cursor: pointer;
+    padding: 2px 5px;
+    margin-bottom: 0.3rem;
+    font-size: 14px;
+    border: solid 10px transparent;
+    position:relative;
+  
+}
+button:hover{
+    background-color: rgba(180,180,180,0.5);
+}
+
+.history li:hover {
+    background-color:rgba(180,180,180,0.05);
+    border-radius: 10px;
+}
+
+.sign{
+    padding:10px;
+    margin: 10px;
+    font-size: 14px;
+    text-align: center;
+    border-top: solid 0.25px  rgb(255, 255, 255, 0.5);
+}
+
+.fa-trash {
+    opacity: 0;
+    position : absolute;
+    right: 0;
+}
+
+.history li:hover .fa-trash{
+    opacity: 1;
+    color: #fff ;
+}
+
+.fa-trash:hover{
+    color: #f87171 !important ;
+}
+
+.highlighted {
+    background-color: rgba(180, 180, 180, 0.05);
+    border-radius: 10px;
+}
+
+
+/* Light mode overrides */
+.sidebar.light {
+    background-color: #f5f5f5;
+    color: #0e0d0d;
+}
+
+.sidebar.light button {
+    border: solid 1px rgba(0,0,0,0.2);
+    color: #000;
+}
+
+.sidebar.light button:hover {
+    background-color: rgba(0,0,0,0.05);
+}
+
+.sidebar.light .history li {
+     background-color: rgba(22, 20, 20, 0.05);
+    color: #000;  /* <-- thread titles black in light mode */
+} 
+.sidebar.light .history li:hover {
+    background-color: rgba(0,0,0,0.05);
+}
+
+
+.sidebar.light .fa-trash:hover {
+    color: #f87171 !important;
+}
+
+.sidebar.light .highlighted {
+    background-color: rgba(0,0,0,0.05);
+}
+
+.sidebar.light .fa-trash {
+    color: #000 !important;
+}
+
+.sidebar.light button span i {
+     color: #000 !important;
+}
+.sidebar {
+  height: 100vh;
+  width: 260px;
+  background-color: #171717; /* Or your variable var(--sidebar-bg) */
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto; /* Allow scrolling inside sidebar if history is long */
+  flex-shrink: 0; /* Prevents sidebar from squishing */
+}
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  height: 100vh; /* Ensure it's exactly the screen height */
+  overflow: hidden; /* Prevent the sidebar itself from scrolling */
+}
+
+.history-wrapper {
+  flex: 1; /* This takes up all the space between the button and the signature */
+  overflow-y: auto; /* This allows ONLY the list to scroll */
+}
+
+.history {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sign {
+ border-top: none !important;
+  margin-top: auto; /* Ensures it stays at the very bottom */
+  padding: 20px 0;
+  text-align: center;
+}
+
+.sign p {
+  margin: 0;
+  font-size: 0.75rem; /* Smaller size for a professional look */
+  opacity: 0.4;       /* This gives it the faded effect */
+  letter-spacing: 0.5px;
+  color: var(--text-color); /* Uses your existing text color */
+  font-weight: 300;
+}
+
+/* --- Base Sidebar Structure --- */
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    width: 260px;
+    background-color: #171717; /* Default Dark */
+    color: #b4b4b4;           /* Default Light Gray */
+    overflow: hidden;
+    flex-shrink: 0;
+    transition: background-color 0.3s ease;
+}
+
+/* --- LIGHT MODE FORCE --- */
+/* We use !important here because we want to override any dynamic styles */
+.sidebar.light {
+    background-color: #ffffff !important;
+    color: #212121 !important; 
+    border-right: 1px solid #e5e5e5;
+}
+
+/* Force thread titles and text to be dark in light mode */
+.sidebar.light .history li,
+.sidebar.light .thread-title,
+.sidebar.light button,
+.sidebar.light .fa-trash,
+.sidebar.light .fa-pen-to-square {
+    color: #212121 !important;
+}
+
+/* Hover and Highlight adjustments for Light Mode */
+.sidebar.light .history li:hover {
+    background-color: #f0f0f0 !important;
+}
+
+.sidebar.light .highlighted {
+    background-color: #e8e8e8 !important;
+    color: #000000 !important;
+}
+
+/* --- Signature Styling --- */
+.sign {
+    margin-top: auto;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.sign p {
+    margin: 0;
+    font-size: 0.75rem;
+    opacity: 0.4; /* Keep it faded */
+    font-weight: 300;
+}
+
+/* Ensure signature stays dark in light mode too */
+.sidebar.light .sign p {
+    color: #000000 !important;
+}
+
+/* --- History Scroll Logic --- */
+.history-wrapper {
+    flex: 1;
+    overflow-y: auto;
+}
+
+.history {
+    list-style: none;
+    padding: 10px;
+    margin: 0;
+}/* --- Desktop Default --- */
+.sidebar {
+    width: 260px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, width 0.3s ease;
+    z-index: 1000;
+}
+
+/* --- Mobile Logic (Screens smaller than 768px) --- */
+/* --- Mobile Responsive ChatGPT Style --- */
+
+@media (max-width: 768px) {
+    .sidebar {
+        position: fixed; /* Floats over the chat */
+        left: 0;
+        top: 0;
+        bottom: 0;
+        z-index: 2000;
+        width: 280px;
+        transform: translateX(-100%); /* Hidden by default */
+        transition: transform 0.3s ease-in-out;
+        box-shadow: 10px 0 30px rgba(0,0,0,0.5);
+    }
+
+    /* When 'active' class is added via the context state, it slides in */
+    .sidebar.active {
+        transform: translateX(0);
+    }
+
+    /* Make sure the history list is scrollable on small screens */
+    .history-wrapper {
+        max-height: calc(100vh - 150px);
+        overflow-y: auto;
+    }
+}/* --- MOBILE DRAWER LOGIC --- */
+@media (max-width: 768px) {
+    .sidebar {
+        position: fixed !important; /* Floats over everything */
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: 280px !important;
+        z-index: 5000 !important; /* Higher than navbar */
+        transform: translateX(-100%); /* Start hidden off-screen */
+        transition: transform 0.3s ease-in-out !important;
+        box-shadow: 10px 0 30px rgba(0,0,0,0.5);
+        display: flex !important; /* Overrides any display: none */
+    }
+
+    /* This class is triggered when showSidebar is true */
+    .sidebar.active {
+        transform: translateX(0) !important;
+    }
+}
